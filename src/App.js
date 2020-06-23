@@ -28,7 +28,7 @@ function App() {
   });
 
   const reset = () => {
-    setNavState({ msg: 'You guessed wrong!', score: 0, ts: navState.ts })
+    setNavState({ msg: 'Wrong! Try again', score: 0, ts: navState.ts })
     setPics({ imgs: pics.imgs, clicked: [] });
   };
 
