@@ -1,5 +1,4 @@
 import React, { useState, Component } from "react";
-// import logo from './logo.svg';
 import "./App.css";
 import Nav from "./components/Nav";
 import Jumbo from "./components/Jumbo";
@@ -29,14 +28,12 @@ function App() {
   });
 
   const reset = () => {
-    //do some resetting.
-    // setNavState({ score: 0 });
+    navState.score === navState.ts ?
+    alert(`CONGRATS! NEW TOP SCORE: ${navState.score}`) :
+    alert(`Game Over! Total Score: ${navState.score} Top Score: ${navState.ts}`);
+
     setNavState({ msg: 'Click An Image to Begin!', score: 0, ts: navState.ts })
     setPics({ imgs: pics.imgs, clicked: [] });
-
-    // clicked back to 0
-    // top score remains the same 
-    
   };
 
   const shuffle = (url) => {
@@ -44,7 +41,6 @@ function App() {
       reset();
       console.log('Game reset.')
     } else {
-      //add 1 to score, 1 to top score if score> top score
       setPics({
         imgs: pics.imgs.sort((a, b) => Math.random() - 0.5),
         clicked: pics.clicked.concat([url]),
