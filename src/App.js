@@ -28,11 +28,7 @@ function App() {
   });
 
   const reset = () => {
-    navState.score === navState.ts ?
-    alert(`CONGRATS! NEW TOP SCORE: ${navState.score}`) :
-    alert(`Game Over! Total Score: ${navState.score} Top Score: ${navState.ts}`);
-
-    setNavState({ msg: 'Click An Image to Begin!', score: 0, ts: navState.ts })
+    setNavState({ msg: 'You guessed wrong!', score: 0, ts: navState.ts })
     setPics({ imgs: pics.imgs, clicked: [] });
   };
 
@@ -45,10 +41,9 @@ function App() {
         imgs: pics.imgs.sort((a, b) => Math.random() - 0.5),
         clicked: pics.clicked.concat([url]),
       });
-
       navState.score === navState.ts ?
-        setNavState({ score: navState.score + 1, ts: navState.ts + 1 }) : 
-        setNavState({ score: navState.score + 1, ts: navState.ts });
+        setNavState({ msg: 'You guessed right!', score: navState.score + 1, ts: navState.ts + 1 }) : 
+        setNavState({ msg: 'You guessed right!', score: navState.score + 1, ts: navState.ts });
 
     }
   };
